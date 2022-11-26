@@ -1,0 +1,15 @@
+/Users/daniel/DevMap/GitHub/Repositories/3.0_ATMSimulator/ATMSimulator/ATMSimulator/bin/Debug/net6.0/ATMSimulator
+/Users/daniel/DevMap/GitHub/Repositories/3.0_ATMSimulator/ATMSimulator/ATMSimulator/bin/Debug/net6.0/ATMSimulator.deps.json
+/Users/daniel/DevMap/GitHub/Repositories/3.0_ATMSimulator/ATMSimulator/ATMSimulator/bin/Debug/net6.0/ATMSimulator.runtimeconfig.json
+/Users/daniel/DevMap/GitHub/Repositories/3.0_ATMSimulator/ATMSimulator/ATMSimulator/bin/Debug/net6.0/ATMSimulator.dll
+/Users/daniel/DevMap/GitHub/Repositories/3.0_ATMSimulator/ATMSimulator/ATMSimulator/bin/Debug/net6.0/ref/ATMSimulator.dll
+/Users/daniel/DevMap/GitHub/Repositories/3.0_ATMSimulator/ATMSimulator/ATMSimulator/bin/Debug/net6.0/ATMSimulator.pdb
+/Users/daniel/DevMap/GitHub/Repositories/3.0_ATMSimulator/ATMSimulator/ATMSimulator/obj/Debug/net6.0/ATMSimulator.csproj.AssemblyReference.cache
+/Users/daniel/DevMap/GitHub/Repositories/3.0_ATMSimulator/ATMSimulator/ATMSimulator/obj/Debug/net6.0/ATMSimulator.GeneratedMSBuildEditorConfig.editorconfig
+/Users/daniel/DevMap/GitHub/Repositories/3.0_ATMSimulator/ATMSimulator/ATMSimulator/obj/Debug/net6.0/ATMSimulator.AssemblyInfoInputs.cache
+/Users/daniel/DevMap/GitHub/Repositories/3.0_ATMSimulator/ATMSimulator/ATMSimulator/obj/Debug/net6.0/ATMSimulator.AssemblyInfo.cs
+/Users/daniel/DevMap/GitHub/Repositories/3.0_ATMSimulator/ATMSimulator/ATMSimulator/obj/Debug/net6.0/ATMSimulator.csproj.CoreCompileInputs.cache
+/Users/daniel/DevMap/GitHub/Repositories/3.0_ATMSimulator/ATMSimulator/ATMSimulator/obj/Debug/net6.0/ATMSimulator.dll
+/Users/daniel/DevMap/GitHub/Repositories/3.0_ATMSimulator/ATMSimulator/ATMSimulator/obj/Debug/net6.0/ref/ATMSimulator.dll
+/Users/daniel/DevMap/GitHub/Repositories/3.0_ATMSimulator/ATMSimulator/ATMSimulator/obj/Debug/net6.0/ATMSimulator.pdb
+/Users/daniel/DevMap/GitHub/Repositories/3.0_ATMSimulator/ATMSimulator/ATMSimulator/obj/Debug/net6.0/ATMSimulator.genruntimeconfig.cache
