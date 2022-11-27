@@ -13,3 +13,18 @@
 /Users/daniel/DevMap/GitHub/Repositories/3.0_ATMSimulator/ATMSimulator/ATMSimulator/obj/Debug/net6.0/ref/ATMSimulator.dll
 /Users/daniel/DevMap/GitHub/Repositories/3.0_ATMSimulator/ATMSimulator/ATMSimulator/obj/Debug/net6.0/ATMSimulator.pdb
 /Users/daniel/DevMap/GitHub/Repositories/3.0_ATMSimulator/ATMSimulator/ATMSimulator/obj/Debug/net6.0/ATMSimulator.genruntimeconfig.cache
+F:\Programering Archive\SideProjects\3.0_ATMSimulator\ATMSimulator\bin\Debug\net6.0\ATMSimulator.exe
+F:\Programering Archive\SideProjects\3.0_ATMSimulator\ATMSimulator\bin\Debug\net6.0\ATMSimulator.deps.json
+F:\Programering Archive\SideProjects\3.0_ATMSimulator\ATMSimulator\bin\Debug\net6.0\ATMSimulator.runtimeconfig.json
+F:\Programering Archive\SideProjects\3.0_ATMSimulator\ATMSimulator\bin\Debug\net6.0\ATMSimulator.dll
+F:\Programering Archive\SideProjects\3.0_ATMSimulator\ATMSimulator\bin\Debug\net6.0\ATMSimulator.pdb
+F:\Programering Archive\SideProjects\3.0_ATMSimulator\ATMSimulator\obj\Debug\net6.0\ATMSimulator.csproj.AssemblyReference.cache
+F:\Programering Archive\SideProjects\3.0_ATMSimulator\ATMSimulator\obj\Debug\net6.0\ATMSimulator.GeneratedMSBuildEditorConfig.editorconfig
+F:\Programering Archive\SideProjects\3.0_ATMSimulator\ATMSimulator\obj\Debug\net6.0\ATMSimulator.AssemblyInfoInputs.cache
+F:\Programering Archive\SideProjects\3.0_ATMSimulator\ATMSimulator\obj\Debug\net6.0\ATMSimulator.AssemblyInfo.cs
+F:\Programering Archive\SideProjects\3.0_ATMSimulator\ATMSimulator\obj\Debug\net6.0\ATMSimulator.csproj.CoreCompileInputs.cache
+F:\Programering Archive\SideProjects\3.0_ATMSimulator\ATMSimulator\obj\Debug\net6.0\ATMSimulator.dll
+F:\Programering Archive\SideProjects\3.0_ATMSimulator\ATMSimulator\obj\Debug\net6.0\refint\ATMSimulator.dll
+F:\Programering Archive\SideProjects\3.0_ATMSimulator\ATMSimulator\obj\Debug\net6.0\ATMSimulator.pdb
+F:\Programering Archive\SideProjects\3.0_ATMSimulator\ATMSimulator\obj\Debug\net6.0\ATMSimulator.genruntimeconfig.cache
+F:\Programering Archive\SideProjects\3.0_ATMSimulator\ATMSimulator\obj\Debug\net6.0\ref\ATMSimulator.dll
