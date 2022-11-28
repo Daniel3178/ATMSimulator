@@ -1,3 +1,4 @@
 ﻿using ATMSimulator;
-AccountManager.Run();
+//AccountManager.Run();
+AccountCreator.Run();
 Console.ReadLine();
