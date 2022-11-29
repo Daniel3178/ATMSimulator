@@ -13,7 +13,7 @@ namespace ATMSimulator
         public static void Run()
         {
             string[] s = GetUserFullName();
-            Console.WriteLine(s[0] + s[1]);
+            Console.WriteLine(s[0]);
             Console.ReadKey();
         }
 
@@ -41,25 +41,22 @@ namespace ATMSimulator
             return temp;
         }
 
-        public static string[] GetUserFullName(/*string? input*/)
+        public static string[] GetUserFullName()
         {
             bool IsAccepted = false;
             string[] result;
 
-            while (!IsAccepted)
-            {
-                string inputToCheck = Console.ReadLine() ;
-                bool resultOfTheTest = inputToCheck.All(Char.IsLetter);
-
-                if (resultOfTheTest)
-                {
-                    IsAccepted = true;
-                    result = { inputToCheck.Split(",")};
+            while (IsAccepted == false){
+                string s = Console.ReadLine();
+                bool test = s.All(Char.IsLetter);
+                if (test == true){
+                    result = new string []{s};
                     return result;
                 }
-
             }
-            //return result;
+            return null;
+
+
 
         }
     }
