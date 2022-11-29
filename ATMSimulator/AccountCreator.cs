@@ -8,19 +8,29 @@ namespace ATMSimulator
 {
     internal class AccountCreator
     {
-        private static List<int> IDNumberList = new List<int>();
+        private static List<ulong> IDNumberList = new List<ulong>();
         private static List<int> CardNumberList = new List<int>();
         public static void Run()
         {
-            string[] s = GetUserFullName();
-            foreach (string s2 in s)
-            {
-                Console.Write(s2 + " ");
-            }
+            Account newAccount;
+            Console.WriteLine("please enter your full name:");
+            string[] temp = GetUserFullName();
+            Console.WriteLine("please enter your IdNumber:");
+            ulong id = GetUserIDNumber(Console.ReadLine());
+            Console.WriteLine("please choose a password");
+            int password = GetUserPassword(Console.ReadLine());
+            Console.WriteLine("your cardnumber is : ");
+            int cardNum = CardNumGenerator();
+            Console.WriteLine(cardNum);
+
+            newAccount = new Account(id, temp[0], temp[1],cardNum,password);
+            AccountManager.AddNewAccountToDictionary(newAccount, cardNum);
+            AccountManager.ListAllTheAccounts();
+
 
         }
 
-        public static bool IsUniqueID(int idToCheck)
+        public static bool IsUniqueID(ulong idToCheck)
         {
             if (IDNumberList.Contains(idToCheck))
             {
@@ -28,16 +38,47 @@ namespace ATMSimulator
             }
             return true;
         }
-        //public static int CardNumGenerator()
-        //{
+        public static int CardNumGenerator()
+        {
+            Random random = new Random();
+            int generatedNumber;
+            generatedNumber = random.Next(100000, 999999);
+            while (CardNumberList.Contains(generatedNumber))
+            {
+                generatedNumber = random.Next(100000, 999999);
 
-        //}
+            }
+            CardNumberList.Add(generatedNumber);
+            return generatedNumber;
 
-        public static int GetUserIDNumber(string? input)
+        }
+
+        public static ulong GetUserIDNumber(string? input)
         {
 
+            ulong temp;
+            bool IsAccepted = false;
+            while (!IsAccepted)
+            {
+                while (!ulong.TryParse(input, out temp) || string.IsNullOrWhiteSpace(input) || temp < 10000000 || temp > 99999999)
+                {
+                    input = Console.ReadLine();
+
+                }
+                if (IsUniqueID(temp))
+                {
+                    return temp;
+                }
+
+            }
+            return 0;
+
+        }
+
+        public static int GetUserPassword(string? input)
+        {
             int temp;
-            while (!int.TryParse(input, out temp) || input == null || temp < 1000 || temp > 9999)
+            while (!int.TryParse(input, out temp) || input == null || temp < 1000 || temp > 999999)
             {
                 input = Console.ReadLine();
             }
@@ -78,5 +119,12 @@ namespace ATMSimulator
             return null;
 
         }
+
+        public static void PrintTheManula()
+        {
+            Console.WriteLine("Welcome to the account creating process, please follow the instructions" +
+                "before you continue in order to ease this process");
+        }
+
     }
 }

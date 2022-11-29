@@ -30,5 +30,18 @@ namespace ATMSimulator
             
 
         }
+
+        public static void AddNewAccountToDictionary(Account newAccount, int cardNumber)
+        {
+            accountsDirectory.Add(cardNumber, newAccount);
+        }
+
+        public static void ListAllTheAccounts()
+        {
+            foreach(Account account in accountsDirectory.Values)
+            {
+                Console.WriteLine(account.Name + " " + account.LastName + " "+ account.IDnum + " " + account.CardNum);
+            }
+        }
     }
 }
