@@ -13,8 +13,11 @@ namespace ATMSimulator
         public static void Run()
         {
             string[] s = GetUserFullName();
-            Console.WriteLine(s[0]);
-            Console.ReadKey();
+            foreach (string s2 in s)
+            {
+                Console.Write(s2 + " ");
+            }
+
         }
 
         public static bool IsUniqueID(int idToCheck)
@@ -44,19 +47,35 @@ namespace ATMSimulator
         public static string[] GetUserFullName()
         {
             bool IsAccepted = false;
-            string[] result;
 
-            while (IsAccepted == false){
-                string s = Console.ReadLine();
-                bool test = s.All(Char.IsLetter);
-                if (test == true){
-                    result = new string []{s};
-                    return result;
+            while (!IsAccepted)
+            {
+                string[] result;
+                string? inputToCheck = Console.ReadLine();
+                bool flag = false;
+
+                if (!string.IsNullOrWhiteSpace(inputToCheck))
+                {
+                    result = inputToCheck.Trim().Split(',', ' ');
+                    if (result.Length == 2)
+                    {
+                        foreach (string tempString in result)
+                        {
+                            bool testIfAllAlphabet = tempString.All(Char.IsLetter);
+                            if (!testIfAllAlphabet)
+                            {
+                                flag = true;
+                            }
+                        }
+                        if (!flag)
+                        {
+                            IsAccepted = true;
+                            return result;
+                        }
+                    }
                 }
             }
             return null;
-
-
 
         }
     }
