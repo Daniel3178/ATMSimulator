@@ -8,13 +8,13 @@ namespace ATMSimulator
 {
     internal class Account
     {
-        public ulong IDnum { get; set; }
+        public string IDnum { get; set; }
         public  string Name { get; set; }
         public string LastName { get; set; }
         public int CardNum { get; set; }
         public int Password { get; set; }
 
-        public Account(ulong iDnum, string name, string lastName, int cardNum, int password)
+        public Account(string iDnum, string name, string lastName, int cardNum, int password)
         {
             IDnum = iDnum;
             Name = name;

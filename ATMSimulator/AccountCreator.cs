@@ -8,7 +8,7 @@ namespace ATMSimulator
 {
     internal class AccountCreator
     {
-        private static List<ulong> IDNumberList = new List<ulong>();
+        private static List<string> IDNumberList = new List<string>();
         private static List<int> CardNumberList = new List<int>();
         public static void Run()
         {
@@ -16,21 +16,21 @@ namespace ATMSimulator
             Console.WriteLine("please enter your full name:");
             string[] temp = GetUserFullName();
             Console.WriteLine("please enter your IdNumber:");
-            ulong id = GetUserIDNumber(Console.ReadLine());
+            string id = GetUserIDNumber();
             Console.WriteLine("please choose a password");
             int password = GetUserPassword(Console.ReadLine());
             Console.WriteLine("your cardnumber is : ");
             int cardNum = CardNumGenerator();
             Console.WriteLine(cardNum);
 
-            newAccount = new Account(id, temp[0], temp[1],cardNum,password);
+            newAccount = new Account(id, temp[0], temp[1], cardNum, password);
             AccountManager.AddNewAccountToDictionary(newAccount, cardNum);
             AccountManager.ListAllTheAccounts();
 
 
         }
 
-        public static bool IsUniqueID(ulong idToCheck)
+        public static bool IsUniqueID(string idToCheck)
         {
             if (IDNumberList.Contains(idToCheck))
             {
@@ -53,25 +53,40 @@ namespace ATMSimulator
 
         }
 
-        public static ulong GetUserIDNumber(string? input)
+        public static string GetUserIDNumber()
         {
 
-            ulong temp;
             bool IsAccepted = false;
             while (!IsAccepted)
             {
-                while (!ulong.TryParse(input, out temp) || string.IsNullOrWhiteSpace(input) || temp < 10000000 || temp > 99999999)
+                bool isAllDigit = true;
+                string? input = Console.ReadLine();
+                while (string.IsNullOrWhiteSpace(input))
                 {
                     input = Console.ReadLine();
-
                 }
-                if (IsUniqueID(temp))
+                if (input.Length == 10)
                 {
-                    return temp;
+
+                    foreach (char ch in input)
+                    {
+                        if (!char.IsDigit(ch))
+                        {
+                            isAllDigit = false;
+                        }
+                    }
+                    if (isAllDigit && IsUniqueID(input))
+                    {
+                        return input;
+                    }
+                    else
+                    {
+                        IsAccepted = false;
+                    }
                 }
 
             }
-            return 0;
+            return null;
 
         }
 

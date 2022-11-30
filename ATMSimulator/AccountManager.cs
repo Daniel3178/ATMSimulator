@@ -13,7 +13,7 @@ namespace ATMSimulator
         public static void Run()
         {
             Account selectedAccount;
-            Account newAccount = new Account(01252, "Oska", "Isaksson", 4564, 4564);
+            Account newAccount = new Account("4564", "Oska", "Isaksson", 4564, 4564);
             accountsDirectory.Add(4564, newAccount);
             int cardNum = 4564;
             int password = 464;
