@@ -8,14 +8,14 @@ namespace ATMSimulator
 {
     internal class AccountManager
     {
-        public static Dictionary<int, Account> accountsDirectory = new Dictionary<int, Account>();
+        public static Dictionary<string, Account> accountsDirectory = new Dictionary<string, Account>();
 
         public static void Run()
         {
             Account selectedAccount;
-            Account newAccount = new Account("4564", "Oska", "Isaksson", 4564, 4564);
-            accountsDirectory.Add(4564, newAccount);
-            int cardNum = 4564;
+            Account newAccount = new Account("4564", "Oska", "Isaksson", "4564", 4564);
+            accountsDirectory.Add("4564", newAccount);
+            string cardNum = "4564";
             int password = 464;
             selectedAccount = accountsDirectory[cardNum];
             if(selectedAccount.Password == password)
@@ -31,7 +31,7 @@ namespace ATMSimulator
 
         }
 
-        public static void AddNewAccountToDictionary(Account newAccount, int cardNumber)
+        public static void AddNewAccountToDictionary(Account newAccount, string cardNumber)
         {
             accountsDirectory.Add(cardNumber, newAccount);
         }
