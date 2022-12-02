@@ -8,19 +8,26 @@ namespace ATMSimulator
 {
     internal class Account
     {
-        public string IDnum { get; set; }
+        public uint IDnum { get; set; }
         public  string Name { get; set; }
         public string LastName { get; set; }
-        public int CardNum { get; set; }
-        public int Password { get; set; }
+        public uint CardNum { get; set; }
+        public uint Password { get; set; }
 
-        public Account(string iDnum, string name, string lastName, int cardNum, int password)
+        public Account(uint iDnum, string name, string lastName, uint cardNum, uint password)
         {
             IDnum = iDnum;
             Name = name;
             LastName = lastName;
             CardNum = cardNum;
             Password = password;
+        }
+
+        public string ToString(Account account)
+        {
+            string result = account.Name + "," + account.LastName + "," + account.IDnum + "," + account.CardNum +","+account.Password;
+            return result;
+
         }
     }
 }

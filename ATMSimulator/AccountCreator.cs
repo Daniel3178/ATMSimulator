@@ -8,29 +8,36 @@ namespace ATMSimulator
 {
     internal class AccountCreator
     {
-        private static List<string> IDNumberList = new List<string>();
-        private static List<int> CardNumberList = new List<int>();
+        public static List<uint> IDNumberList = new List<uint>();
+        public static List<uint> CardNumberList = new List<uint>();
         public static void Run()
         {
+            for(uint i = 0; i < 1; i++)
+            {
+
             Account newAccount;
             Console.WriteLine("please enter your full name:");
             string[] temp = GetUserFullName();
             Console.WriteLine("please enter your IdNumber:");
-            string id = GetUserIDNumber();
+            uint id = GetUserIDNumber(Console.ReadLine());
             Console.WriteLine("please choose a password");
-            int password = GetUserPassword(Console.ReadLine());
+            uint password = GetUserPassword(Console.ReadLine());
             Console.WriteLine("your cardnumber is : ");
-            int cardNum = CardNumGenerator();
+            uint cardNum = CardNumGenerator();
             Console.WriteLine(cardNum);
 
             newAccount = new Account(id, temp[0], temp[1], cardNum, password);
             AccountManager.AddNewAccountToDictionary(newAccount, cardNum);
+            }
+            //AccountManager.AddNewAccountToDictionary(newAccount, cardNum);
+
             AccountManager.ListAllTheAccounts();
+            //Console.WriteLine(newAccount.ToString()) ;
 
-
+            DataHandler.WriteToDatabase();
         }
 
-        public static bool IsUniqueID(string idToCheck)
+        public static bool IsUniqueID(uint idToCheck)
         {
             if (IDNumberList.Contains(idToCheck))
             {
@@ -38,65 +45,39 @@ namespace ATMSimulator
             }
             return true;
         }
-        public static int CardNumGenerator()
+        public static uint CardNumGenerator()
         {
             Random random = new Random();
-            int generatedNumber;
-            generatedNumber = random.Next(100000, 999999);
+            uint generatedNumber;
+            generatedNumber = (uint)random.Next(1000000000, 2000000000);
             while (CardNumberList.Contains(generatedNumber))
             {
-                generatedNumber = random.Next(100000, 999999);
+                generatedNumber = (uint)random.Next(1000000000, 2000000000);
 
             }
             CardNumberList.Add(generatedNumber);
             return generatedNumber;
 
         }
-
-        public static string GetUserIDNumber()
+        public static uint GetUserPassword(string? input)
         {
-
-            bool IsAccepted = false;
-            while (!IsAccepted)
-            {
-                bool isAllDigit = true;
-                string? input = Console.ReadLine();
-                while (string.IsNullOrWhiteSpace(input))
-                {
-                    input = Console.ReadLine();
-                }
-                if (input.Length == 10)
-                {
-
-                    foreach (char ch in input)
-                    {
-                        if (!char.IsDigit(ch))
-                        {
-                            isAllDigit = false;
-                        }
-                    }
-                    if (isAllDigit && IsUniqueID(input))
-                    {
-                        return input;
-                    }
-                    else
-                    {
-                        IsAccepted = false;
-                    }
-                }
-
-            }
-            return null;
-
-        }
-
-        public static int GetUserPassword(string? input)
-        {
-            int temp;
-            while (!int.TryParse(input, out temp) || input == null || temp < 1000 || temp > 999999)
+            uint temp;
+            while (!uint.TryParse(input, out temp) || input == null || temp < 100000 || temp > 999999)
             {
                 input = Console.ReadLine();
             }
+            return temp;
+
+        }
+        public static uint GetUserIDNumber(string? input)
+        {
+
+            uint temp;
+            while (!uint.TryParse(input, out temp) || string.IsNullOrWhiteSpace(input) || temp > 30000000 || temp < 10000000 || !IsUniqueID(temp))
+            {
+                input = Console.ReadLine();
+            }
+            IDNumberList.Add(temp);
             return temp;
         }
 
@@ -134,12 +115,5 @@ namespace ATMSimulator
             return null;
 
         }
-
-        public static void PrintTheManula()
-        {
-            Console.WriteLine("Welcome to the account creating process, please follow the instructions" +
-                "before you continue in order to ease this process");
-        }
-
     }
 }
