@@ -12,21 +12,7 @@ namespace ATMSimulator
 
         public static void Run()
         {
-            Account selectedAccount;
-            Account newAccount = new Account(01252, "Oska", "Isaksson", 4564, 4564);
-            accountsDirectory.Add(4564, newAccount);
-            uint cardNum = 4564;
-            int password = 464;
-            selectedAccount = accountsDirectory[cardNum];
-            if(selectedAccount.Password == password)
-            {
-                Console.WriteLine(selectedAccount.ToString());
-                Console.WriteLine("found");
-            }
-            else
-            {
-                Console.WriteLine("not found");
-            }
+
             
 
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security;
 
 namespace ATMSimulator
 {
@@ -12,28 +13,24 @@ namespace ATMSimulator
         public static List<uint> CardNumberList = new List<uint>();
         public static void Run()
         {
-            for(uint i = 0; i < 1; i++)
+            for (uint i = 0; i < 1; i++)
             {
 
-            Account newAccount;
-            Console.WriteLine("please enter your full name:");
-            string[] temp = GetUserFullName();
-            Console.WriteLine("please enter your IdNumber:");
-            uint id = GetUserIDNumber(Console.ReadLine());
-            Console.WriteLine("please choose a password");
-            uint password = GetUserPassword(Console.ReadLine());
-            Console.WriteLine("your cardnumber is : ");
-            uint cardNum = CardNumGenerator();
-            Console.WriteLine(cardNum);
+                Account newAccount;
+                Console.WriteLine("please enter your full name:");
+                string[] temp = GetUserFullName();
+                Console.WriteLine("please enter your IdNumber:");
+                uint id = GetUserIDNumber(Console.ReadLine());
+                Console.WriteLine("please choose a password");
+                uint password = GetUserPassword();
+                Console.WriteLine("your cardnumber is : ");
+                uint cardNum = CardNumGenerator();
+                Console.WriteLine(cardNum);
 
-            newAccount = new Account(id, temp[0], temp[1], cardNum, password);
-            AccountManager.AddNewAccountToDictionary(newAccount, cardNum);
+                newAccount = new Account(id, temp[0], temp[1], cardNum, password);
+                AccountManager.AddNewAccountToDictionary(newAccount, cardNum);
             }
-            //AccountManager.AddNewAccountToDictionary(newAccount, cardNum);
-
             AccountManager.ListAllTheAccounts();
-            //Console.WriteLine(newAccount.ToString()) ;
-
             DataHandler.WriteToDatabase();
         }
 
@@ -59,12 +56,22 @@ namespace ATMSimulator
             return generatedNumber;
 
         }
-        public static uint GetUserPassword(string? input)
+        public static uint GetUserPassword()
         {
+            string input;
+            SecureString pass = Validator.GetTheSecretPassword();
+
+            input = new System.Net.NetworkCredential(string.Empty, pass).Password;
             uint temp;
             while (!uint.TryParse(input, out temp) || input == null || temp < 100000 || temp > 999999)
             {
-                input = Console.ReadLine();
+                Console.ForegroundColor = ConsoleColor.Red;
+
+                Console.WriteLine("\nTry Again");
+                Console.ResetColor();
+                 pass = Validator.GetTheSecretPassword();
+
+                input = new System.Net.NetworkCredential(string.Empty, pass).Password;
             }
             return temp;
 
@@ -73,11 +80,22 @@ namespace ATMSimulator
         {
 
             uint temp;
-            while (!uint.TryParse(input, out temp) || string.IsNullOrWhiteSpace(input) || temp > 30000000 || temp < 10000000 || !IsUniqueID(temp))
+            while (!uint.TryParse(input, out temp) || string.IsNullOrWhiteSpace(input)
+                || temp > 30000000 || temp < 10000000 || !IsUniqueID(temp))
             {
                 input = Console.ReadLine();
             }
             IDNumberList.Add(temp);
+            return temp;
+        }
+        public static uint GetUserCardNumber(string? input)
+        {
+            uint temp;
+            while (!uint.TryParse(input, out temp) || string.IsNullOrWhiteSpace(input)
+                || temp > 2000000000 || temp < 1000000000 || !IsUniqueID(temp))
+            {
+                input = Console.ReadLine();
+            }
             return temp;
         }
 
