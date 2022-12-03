@@ -1,7 +1,7 @@
 ﻿using ATMSimulator;
 using System.Security;
 //AccountManager.Run();
-DataHandler.ReadFromDatabase();
+// DataHandler.ReadFromDatabase();
 //AccountCreator.Run();
 //AccountManager.ListAllTheAccounts();
 //string input;
@@ -9,12 +9,12 @@ DataHandler.ReadFromDatabase();
 
 //input = new System.Net.NetworkCredential(string.Empty, pass).Password;
 //Console.WriteLine(input);
-DataHandler.WriteToDatabase();
-Validator.LogIn();
-ServiceManager.SettInMoney();
-ServiceManager.CheckYourBalance();
-ServiceManager.WithDrawMoney();
-ServiceManager.CheckYourBalance();
-
+// DataHandler.WriteToDatabase();
+// Validator.LogIn();
+// ServiceManager.SettInMoney();
+// ServiceManager.CheckYourBalance();
+// ServiceManager.WithDrawMoney();
+// ServiceManager.CheckYourBalance();
+Simulator.Initializer();
 
 Console.ReadLine();
