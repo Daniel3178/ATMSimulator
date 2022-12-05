@@ -25,7 +25,6 @@ namespace ATMSimulator
                 OptionsManager();
 
             }
-            AccountManager.ListAllTheAccounts();
             DataHandler.WriteToDatabase();
         }
 
@@ -33,7 +32,7 @@ namespace ATMSimulator
         {
             Account newAccount;
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.Write("\t"+"please enter your full name: ");
+            Console.Write("\t" + "please enter your full name: ");
             string[] temp = GetUserFullName();
             Console.Write("\t" + "please enter your IdNumber: ");
             uint id = GetUserIDNumber(Console.ReadLine());
@@ -54,9 +53,9 @@ namespace ATMSimulator
         }
         private static void ShowTheProfile()
         {
-            if(activeAccount != null)
+            if (activeAccount != null)
             {
-                Console.WriteLine(activeAccount.ToString());
+                Console.WriteLine(activeAccount.ToString(activeAccount));
             }
         }
         public static void OptionsManager()
@@ -68,10 +67,10 @@ namespace ATMSimulator
                 Console.WriteLine("\t" + "[PRESS 1] Show the account profile");
                 Console.WriteLine("\t" + "[PRESS 2] Create a new account");
 
-                Console.WriteLine("\t" + "[PRESS 3] Get back to Simulator");    
+                Console.WriteLine("\t" + "[PRESS 3] Get back to Simulator");
 
                 int temp = 0;
-                while (temp > 2 || temp < 1)
+                while (temp > 3 || temp < 1)
                 {
                     temp = Menu.GetTheUserChoice(Console.ReadLine());
                 }
@@ -82,7 +81,7 @@ namespace ATMSimulator
                         break;
 
                     case (int)Options.New:
-                        AccountCreatorOptionIsActive=false;
+                        AccountCreatorOptionIsActive = false;
                         break;
                     case (int)Options.Back:
                         AccountCreatorOptionIsActive = false;
@@ -127,7 +126,7 @@ namespace ATMSimulator
 
                 Console.WriteLine("\nTry Again");
                 Console.ResetColor();
-                 pass = Validator.GetTheSecretPassword();
+                pass = Validator.GetTheSecretPassword();
 
                 input = new System.Net.NetworkCredential(string.Empty, pass).Password;
             }

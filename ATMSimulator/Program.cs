@@ -15,6 +15,7 @@ using System.Security;
 // ServiceManager.CheckYourBalance();
 // ServiceManager.WithDrawMoney();
 // ServiceManager.CheckYourBalance();
-Simulator.Initializer();
+
+Menu.Run();
 
 Console.ReadLine();

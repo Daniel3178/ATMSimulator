@@ -53,13 +53,15 @@ namespace ATMSimulator
              
 
             }
-            if (IsAuthorized(userCardNum, userPassword))
+            if (IsAuthorized(userCardNum, userPassword) && ServiceManager.currentUser != null)
             {
-                Console.WriteLine("Congratulation");
+
+                Console.WriteLine("You logged in as " +
+                    ServiceManager.currentUser.Name + ServiceManager.currentUser.LastName);
             }
             else if(!IsAuthorized(userCardNum, userPassword))
             {
-                Console.WriteLine("\nNot today!");
+                Console.WriteLine("\n \t Your are not authorized! ");
             }
         }
         public static bool IsAuthorized(uint cardNumber, uint password)

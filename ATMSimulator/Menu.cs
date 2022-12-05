@@ -41,7 +41,7 @@ namespace ATMSimulator
             switch (temp)
             {
                 case (int)Options.Run:
-
+                    Simulator.Run();
                     break;
 
                 case (int)Options.Manual:

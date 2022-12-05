@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/Users/daniel/DevMap/GitHub/Repositories/3.0_ATMSimulator/ATMSimulator/ATMSimulator/ATMSimulator.csproj": {}
+    "F:\\Programering Archive\\SideProjects\\3.0_ATMSimulator\\ATMSimulator\\ATMSimulator.csproj": {}
   },
   "projects": {
-    "/Users/daniel/DevMap/GitHub/Repositories/3.0_ATMSimulator/ATMSimulator/ATMSimulator/ATMSimulator.csproj": {
+    "F:\\Programering Archive\\SideProjects\\3.0_ATMSimulator\\ATMSimulator\\ATMSimulator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/daniel/DevMap/GitHub/Repositories/3.0_ATMSimulator/ATMSimulator/ATMSimulator/ATMSimulator.csproj",
+        "projectUniqueName": "F:\\Programering Archive\\SideProjects\\3.0_ATMSimulator\\ATMSimulator\\ATMSimulator.csproj",
         "projectName": "ATMSimulator",
-        "projectPath": "/Users/daniel/DevMap/GitHub/Repositories/3.0_ATMSimulator/ATMSimulator/ATMSimulator/ATMSimulator.csproj",
-        "packagesPath": "/Users/daniel/.nuget/packages/",
-        "outputPath": "/Users/daniel/DevMap/GitHub/Repositories/3.0_ATMSimulator/ATMSimulator/ATMSimulator/obj/",
+        "projectPath": "F:\\Programering Archive\\SideProjects\\3.0_ATMSimulator\\ATMSimulator\\ATMSimulator.csproj",
+        "packagesPath": "C:\\Users\\z.a.c.c.e\\.nuget\\packages\\",
+        "outputPath": "F:\\Programering Archive\\SideProjects\\3.0_ATMSimulator\\ATMSimulator\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/daniel/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\z.a.c.c.e\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -52,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/opt/homebrew/Cellar/dotnet/6.0.110/libexec/sdk/6.0.110/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }
