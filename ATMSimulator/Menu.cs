@@ -8,14 +8,13 @@ namespace ATMSimulator
 {
     public class Menu
     {
-         #region:Fields
-        public static bool programIsActive = false;
+        #region:Fields
+        private static bool programIsActive = false;
         private enum Options { Run = 1, Manual, Exit }
         #endregion
         public static void Run()
         {
             programIsActive = true;
-            
             while (programIsActive)
             {
                 Console.Clear();
@@ -24,7 +23,7 @@ namespace ATMSimulator
                 OptionsManager();
             }
             Console.WriteLine();
-            Console.WriteLine("\t"+ "\t" + "GoodBye!");
+            Console.WriteLine("\t" + "\t" + "GoodBye!");
         }
 
         #region:OptionsManager
@@ -41,15 +40,18 @@ namespace ATMSimulator
             switch (temp)
             {
                 case (int)Options.Run:
+                    Console.Clear();
                     Simulator.Run();
                     break;
 
                 case (int)Options.Manual:
+                    Console.Clear();
                     ShowTheManual();
                     break;
 
                 case (int)Options.Exit:
-                    Console.WriteLine("\t"+"You chose to exit");
+                    Console.Clear();
+                    Console.WriteLine("\t" + "You chose to exit");
                     programIsActive = false;
                     break;
             }
@@ -101,9 +103,6 @@ namespace ATMSimulator
             Console.WriteLine("\t" + "[PRESS 1] Simulator");
             Console.WriteLine("\t" + "[PRESS 2] Manual");
             Console.WriteLine("\t" + "[PRESS 3] Exit\n");
-
-
-
         }
         #endregion
     }

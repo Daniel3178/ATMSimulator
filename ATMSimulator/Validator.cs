@@ -11,7 +11,7 @@ namespace ATMSimulator
     {
         public static SecureString GetTheSecretPassword()
         {
-            SecureString password = new SecureString();
+            SecureString password = new ();
             ConsoleKeyInfo keyInfo;
             do
             {
@@ -32,25 +32,24 @@ namespace ATMSimulator
                 return password;
             }
         }
-
         public static void LogIn()
         {
-            Console.WriteLine("Enter your card Number");
-            uint userCardNum =  AccountCreator.GetUserCardNumber(Console.ReadLine());
-            Console.WriteLine("Enter your password");
+            Console.Write("Enter your card Number: ");
+            uint userCardNum = AccountCreator.GetUserCardNumber(Console.ReadLine());
+            Console.Write("Enter your password: ");
             SecureString pass = GetTheSecretPassword();
 
             string? input = new System.Net.NetworkCredential(string.Empty, pass).Password;
             uint userPassword = 0;
-            while (!uint.TryParse(input, out userPassword) || string.IsNullOrWhiteSpace(input))
+            while (!uint.TryParse(input, out  userPassword) || string.IsNullOrWhiteSpace(input))
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Only PIN");
+                Console.Write("Only PIN: ");
                 Console.ResetColor();
-               pass = GetTheSecretPassword();
+                pass = GetTheSecretPassword();
 
-                 input = new System.Net.NetworkCredential(string.Empty, pass).Password;
-             
+                input = new System.Net.NetworkCredential(string.Empty, pass).Password;
+
 
             }
             if (IsAuthorized(userCardNum, userPassword) && ServiceManager.currentUser != null)
@@ -59,9 +58,12 @@ namespace ATMSimulator
                 Console.WriteLine("You logged in as " +
                     ServiceManager.currentUser.Name + ServiceManager.currentUser.LastName);
             }
-            else if(!IsAuthorized(userCardNum, userPassword))
+            else if (!IsAuthorized(userCardNum, userPassword))
             {
+                Console.ForegroundColor = ConsoleColor.Red;
+
                 Console.WriteLine("\n \t Your are not authorized! ");
+                Console.ResetColor();
             }
         }
         public static bool IsAuthorized(uint cardNumber, uint password)
@@ -69,17 +71,16 @@ namespace ATMSimulator
             Account selectedAccount;
             try
             {
-
-            selectedAccount = AccountManager.accountsDirectory[cardNumber];
-            if(selectedAccount.Password == password)
-            {
-                ServiceManager.currentUser = selectedAccount;
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+                selectedAccount = AccountManager.accountsDirectory[cardNumber];
+                if (selectedAccount.Password == password)
+                {
+                    ServiceManager.currentUser = selectedAccount;
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             catch
             {

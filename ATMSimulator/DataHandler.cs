@@ -10,21 +10,17 @@ namespace ATMSimulator
     {
         public static void WriteToDatabase()
         {
-            List<string> files = new List<string>();
+            List<string> files = new();
             foreach (Account item in AccountManager.accountsDirectory.Values)
             {
-                files.Add(item.ToString(item));
+                files.Add(Account.ToString(item));
             }
-
-            using (StreamWriter file = new StreamWriter("Database.txt", false))
+            using StreamWriter file = new("Database.txt", false);
+            foreach (string myString in files)
             {
-                foreach (string myString in files)
-                {
-                    file.WriteLine(myString);
-                }
+                file.WriteLine(myString);
             }
         }
-
         public static void ReadFromDatabase()
         {
             string[] tempString = File.ReadAllLines("Database.txt");
@@ -37,7 +33,7 @@ namespace ATMSimulator
 
             for (int i = 0; i < tempString.Length; i++)
             {
-                Account newAccount = new Account(uint.Parse(newTemp[i][2]),
+                Account newAccount = new(uint.Parse(newTemp[i][2]),
                     newTemp[i][0], newTemp[i][1], uint.Parse(newTemp[i][3]),
                     uint.Parse(newTemp[i][4]));
                 AccountManager.AddNewAccountToDictionary(newAccount, uint.Parse(newTemp[i][3]));
@@ -45,7 +41,6 @@ namespace ATMSimulator
                 AccountCreator.CardNumberList.Add(uint.Parse(newTemp[i][3]));
             }
         }
-
         private static string[] SplitTheString(string input)
         {
             string[] tempString = input.Split(',');
